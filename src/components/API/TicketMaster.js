@@ -1,3 +1,5 @@
+const key = '74xIzrOtGvA3vu7LEzlUYC2c8ZjN91jt'
+
 const TicketMaster = () => {
 return(
     <div className = 'main'>
