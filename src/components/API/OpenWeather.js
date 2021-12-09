@@ -1,4 +1,6 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
+import ReactDOM from 'react-dom';
+import Button from '@mui/material/Button';
 
 const OpenWeather = () => {
     const [lat, setLat] = useState(null);
@@ -24,31 +26,32 @@ const OpenWeather = () => {
     }
     const fetchCurrentWeather = () => {
         getLocation();
-        fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${key}`)
+        fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}}&lon=${lng}&appid=${key}`)
             .then(res => res.json())
-
+            .then(data => setResults(data.main))
+    }
     return (
         <div className='main'>
             <div className='mainDiv'></div>
             <h1>OpenWeather API</h1>
+
             {results ? <table>
                 <thead>
-                <tr>
-                <th>Current Temp</th>
-                <th>Current Feels-Like Temp</th>
-                <th>Minimum Temp</th>
-                <th>Maximum Temp</th>
-                </tr>
+                    <tr>
+                        <th>Current Temp</th>
+                        <th>Current Feels-Like Temp</th>
+                        <th>Minimum Temp</th>
+                        <th>Maximum Temp</th>
+                    </tr>
                 </thead>
-                <td>{`${Math.round(results.temp-273.15)}°C`}</td>
-                <td>{`${Math.round(results.feels_like-273.15)}°C`}</td>
-                <td>{`${Math.round(results.temp_min-273.15)}°C`}</td>
-                <td>{`${Math.round(results.temp_max-273.15)}°C`}</td>
-                </table>: <div></div>}
-            <button onClick={fetchCurrentWeather}>fetch</button>
+
+                <td>{`${Math.round(results.temp - 273.15)}°C`}</td>
+                <td>{`${Math.round(results.feels_like - 273.15)}°C`}</td>
+                <td>{`${Math.round(results.temp_min - 273.15)}°C`}</td>
+                <td>{`${Math.round(results.temp_max - 273.15)}°C`}</td>
+            </table> : <div></div>}
+            <Button onClick={fetchCurrentWeather} variant="contained">Find Weather</Button>
         </div>
     )
-    }
 }
-    
 export default OpenWeather;
