@@ -91,7 +91,7 @@ return(
                     <a href = {extraResult.url} rel = 'noreferrer' target = '_blank'>{extraResult.url}</a>
                     <br />
                 </p>
-                
+
             </div>
         </main>
     </div>
