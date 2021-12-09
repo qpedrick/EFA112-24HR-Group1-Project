@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react"
 
 const OpenWeather = () => {
     const [lat, setLat] = useState(null);
-    const [lng, setLng] = useState(null);
+    const [lng, setLng] = useState(null);;
+    const [results, setResults] = useState(null);
     const key = `08d029604b596f179b40bb36b23a43c3`;
+    //const altkey = '87fdda7a943f4b425d67f817af9cab46'
     const getLocation = () => {
         if (!navigator.geolocation) {
             console.log(`Geolocation is not supported by your broswer`);
@@ -23,7 +25,10 @@ const OpenWeather = () => {
 
         fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${key}`)
             .then(res => res.json())
-            .then(json => console.log(json))
+            // .then(json => console.log(json))
+            .then(data => {
+                setResults(data.main)
+            })
             .catch(err => console.log(err))
         }
     
@@ -53,7 +58,8 @@ const OpenWeather = () => {
             <div className='mainDiv'></div>
             <button onClick = {getLocation}>Get Location </button>
             <h1>OpenWeather API</h1>
-            <p>Build out project here</p>
+            <h3>Current Temperature</h3>
+            {results ? <p>{results.temp}</p> : <div></div>}
             <button onClick={fetchCurrentWeather}>fetch</button>
         </div>
     )
