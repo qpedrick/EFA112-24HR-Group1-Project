@@ -1,10 +1,6 @@
 import React, {useState, useEffect } from "react";
 
 
-    
-
-
-
 const TicketMaster = (props) => {
     const ticketmasterKey="ZHK3g0y7c68WdfkO6ZE1bKjVIhqcJxGg"
     const [search, setSearch] = useState('');
@@ -14,17 +10,23 @@ const TicketMaster = (props) => {
     const [status, setStatus] = useState(null);
     
     const fetchEvents = () => {
-        let url = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=ZHK3g0y7c68WdfkO6ZE1bKjVIhqcJxGg"
+        let url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${ticketmasterKey}&latlong=${lat},${lng}` // tried to add "https://cors-anywhere.herokuapp.com/" in front of the link
 
-        fetch(url, {
+        fetch(url, { // CORS PROBLEM BUT SHOWS UP ON POST
             method: "GET",
             headers : new Headers({
-                "Content-Type" : "application/json",
                 "Access-Control-Allow-Origin": "*",
+                // "Host": "app.ticketmaster.com", //God pls this be it
+                // "X-Target-URI": "https://app.ticketmaster.com",
+                "Connection": "Keep-Alive",
+                // "Accept-Encoding": "gzip,deflate,br"
             })
         })  
         .then(res => res.json())
-        .then(data => setResults(data))
+        .then(data => {
+            console.log(data)
+            setResults(data)
+        })
         .catch(err => console.log(err))
     }
 
@@ -48,6 +50,7 @@ return(
     <div className = 'main'>
         <main>
             <div className="searchbox">
+                <h2>TicketMaster Events</h2>
                 <input 
                 type="text"
                 className="searchbar"
@@ -55,8 +58,16 @@ return(
                 value={search}
                 onChange={e => setSearch(e.target.value)}
                 />
+                <br />
+                <br />
+                
                 <button onClick={() => getLocation()}>Get Location</button>
-                <button onClick={() => fetchEvents()}>Click for Event</button>
+                <h2>Latitude & Longitude</h2>
+                <p>Latitude: {lat}</p>
+                <p>Longitude: {lng}</p>
+
+                <button onClick={() => fetchEvents()}>Get Events Near You</button>
+                {results ? <p>{results.events}</p> : <div></div>}
             </div>
         </main>
     </div>
