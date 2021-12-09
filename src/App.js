@@ -42,6 +42,7 @@ function App() {
           <Router>
             <Sidebar />
           </Router>
+          <Footer />
     </ThemeProvider>
   );
 }
