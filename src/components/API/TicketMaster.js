@@ -2,6 +2,7 @@ import React, {useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
 import Button from '@mui/material/Button';
 
+
 const TicketMaster = (props) => {
     const ticketmasterKey="hKAMgR5YeiSPjplmgrpwTuMTCQp63O46"
     const [search, setSearch] = useState('');
@@ -64,7 +65,7 @@ return(
                 />
                 <br />
                 <br />
-                <a href="https://cors-anywhere.herokuapp.com/" target="_blank"><button>Access CORS</button></a>
+                <a href="https://cors-anywhere.herokuapp.com/" target="_blank"><Button variant="contained">Access CORS</Button></a>
                 <br />
                 <br />
 
@@ -75,6 +76,7 @@ return(
                 <p>{status}</p>
 
                 <Button onClick={() => fetchEvents()} variant="contained">Get Events Near You</Button>
+
                 {results ?
                 <p>
                     {results.name}
@@ -94,6 +96,15 @@ return(
                 </p>
                 : <div></div>
                 }
+
+                {results ? 
+                <p>{results.name}
+                <br />
+                {results.url}
+                <br />
+                </p> 
+                : <div></div>}
+
             </div>
         </main>
     </div>
