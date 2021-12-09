@@ -24,8 +24,8 @@ const TicketMaster = (props) => {
         })  
         .then(res => res.json())
         .then(data => {
-            console.log(data._embedded)
-            setResults(data._embedded)
+            console.log(data._embedded.events)
+            setResults(data._embedded.events)
         })
         .catch(err => console.log(err))
     }
@@ -44,6 +44,7 @@ const TicketMaster = (props) => {
             });
         }
     }
+
 
 
 return(
@@ -71,7 +72,7 @@ return(
                 <p>Longitude: {lng}</p>
 
                 <button onClick={() => fetchEvents()}>Get Events Near You</button>
-                {results ? <p>{results.events}</p> : <div></div>}
+                {results ? <p>{results.name}</p> : <div></div>}
             </div>
         </main>
     </div>
