@@ -65,7 +65,8 @@ return(
                 />
                 <br />
                 <br />
-                <a href="https://cors-anywhere.herokuapp.com/" target="_blank"><Button variant="contained">Access CORS</Button></a>
+                <a href="https://cors-anywhere.herokuapp.com/" target="_blank">
+                <Button variant="contained">Access CORS</Button></a>
                 <br />
                 <br />
 
