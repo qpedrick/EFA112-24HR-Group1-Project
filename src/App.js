@@ -2,11 +2,15 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 
 import Header from './components/site/Header';
 import Sidebar from './components/site/Sidebar';
 import Footer from './components/site/Footer';
-
 
 
 function App() {
