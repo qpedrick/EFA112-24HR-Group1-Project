@@ -49,5 +49,5 @@ const OpenWeather = () => {
         </div>
     )
     }
-    
+}
 export default OpenWeather;
