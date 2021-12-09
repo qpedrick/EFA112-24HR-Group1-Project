@@ -8,7 +8,6 @@ const OpenWeather = () => {
     const [results, setResults] = useState(null);
     const key = `08d029604b596f179b40bb36b23a43c3`;
     //const altkey = '87fdda7a943f4b425d67f817af9cab46'
-
     const getLocation = () => {
         if (!navigator.geolocation) {
             console.log(`Geolocation is not supported by your broswer`);
@@ -25,7 +24,6 @@ const OpenWeather = () => {
         }
     }
     const fetchCurrentWeather = () => {
-        getLocation();
         fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${key}`)
             .then(res => res.json())
             .then(data => {
@@ -35,9 +33,9 @@ const OpenWeather = () => {
         }
     return (
         <div className='main'>
+            {getLocation()}
             <div className='mainDiv'></div>
             <h1>OpenWeather API</h1>
-
             {results ? <table>
                 <thead>
                     <tr>
