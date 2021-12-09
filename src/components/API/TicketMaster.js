@@ -81,7 +81,7 @@ return(
                 <p>
                     {results.name}
                     <br/>
-                    {results.url}
+                    <a href = {results.url} rel = 'noreferrer' target = '_blank'>{results.url}</a>
                     <br />
                 </p>
                 : <div></div>
