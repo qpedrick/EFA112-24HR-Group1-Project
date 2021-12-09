@@ -1,4 +1,6 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
+import ReactDOM from 'react-dom';
+import Button from '@mui/material/Button';
 
 const OpenWeather = () => {
     const [lat, setLat] = useState(null);
@@ -45,7 +47,7 @@ const OpenWeather = () => {
                 <td>{`${Math.round(results.temp_min-273.15)}°C`}</td>
                 <td>{`${Math.round(results.temp_max-273.15)}°C`}</td>
                 </table>: <div></div>}
-            <button onClick={fetchCurrentWeather}>fetch</button>
+            <Button onClick={fetchCurrentWeather} variant="contained">fetch</Button>
         </div>
     )
     }

@@ -1,4 +1,6 @@
 import React, {useState, useEffect } from "react";
+import ReactDOM from 'react-dom';
+import Button from '@mui/material/Button';
 
 
 const TicketMaster = (props) => {
@@ -61,16 +63,16 @@ return(
                 />
                 <br />
                 <br />
-                <a href="https://cors-anywhere.herokuapp.com/" target="_blank"><button>Access CORS</button></a>
+                <a href="https://cors-anywhere.herokuapp.com/" target="_blank"><Button variant="contained">Access CORS</Button></a>
                 <br />
                 <br />
 
-                <button onClick={() => getLocation()}>Get Location</button>
+                <Button onClick={() => getLocation()} variant="contained">Get Location</Button>
                 <h2>Latitude & Longitude</h2>
                 <p>Latitude: {lat}</p>
                 <p>Longitude: {lng}</p>
 
-                <button onClick={() => fetchEvents()}>Get Events Near You</button>
+                <Button onClick={() => fetchEvents()} variant="contained">Get Events Near You</Button>
                 {results ? 
                 <p>{results.name}
                 <br />
