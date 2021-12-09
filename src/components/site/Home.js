@@ -1,4 +1,7 @@
+import React, { useState } from 'react';
+
 const Home = () => {
+
     function success(pos) {
         var crd = pos.coords;
         console.log("Your current position is:");
@@ -11,7 +14,9 @@ const Home = () => {
     }
     const getLoc = navigator.geolocation.getCurrentPosition(success, error);
 
+
     return(
+
         <div className = 'main'>
             <div className = 'mainDiv'>
                 <h1>Welcome to our Group Project!</h1>
