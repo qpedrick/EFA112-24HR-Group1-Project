@@ -10,6 +10,7 @@ const TicketMaster = (props) => {
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);
     const [status, setStatus] = useState(null);
+    const [extraResult, setExtraResults] = useState({});
     
 
     const fetchEvents = () => {
@@ -22,13 +23,14 @@ const TicketMaster = (props) => {
                 // "Host": "app.ticketmaster.com", //God pls this be it
                 // "X-Target-URI": "https://app.ticketmaster.com",
                 "Connection": "Keep-Alive",
-                // "Accept-Encoding": "gzip,deflate,br"
+                // "Accept-Encoding": "gzip,deflate,br",
             })
         })  
         .then(res => res.json())
         .then(data => {
             console.log(data._embedded.events[1])
             setResults(data._embedded.events[1])
+            setExtraResults(data._embedded.events[2])
         })
         .catch(err => console.log(err))
     }
@@ -71,15 +73,30 @@ return(
                 <h2>Latitude & Longitude</h2>
                 <p>Latitude: {lat}</p>
                 <p>Longitude: {lng}</p>
+                <p>{status}</p>
 
                 <Button onClick={() => fetchEvents()} variant="contained">Get Events Near You</Button>
-                {results ? 
-                <p>{results.name}
-                <br />
-                {results.url}
-                <br />
-                </p> 
-                : <div></div>}
+
+                {results ?
+                <p>
+                    {results.name}
+                    <br/>
+                    {results.url}
+                    <br />
+                </p>
+                : <div></div>
+                }
+                
+                {extraResult ?
+                <p>
+                    {extraResult.name}
+                    <br/>
+                    {extraResult.url}
+                    <br />
+                </p>
+                : <div></div>
+                }
+                
             </div>
         </main>
     </div>
