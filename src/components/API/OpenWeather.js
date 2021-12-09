@@ -26,6 +26,11 @@ const OpenWeather = () => {
         getLocation();
         fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${25}&lon=${50}&appid=${key}`)
             .then(res => res.json())
+            .then(data => {
+                setResults(data.main)
+            })
+            .catch(err => console.log(err))
+        }
 
     return (
         <div className='main'>
@@ -49,5 +54,5 @@ const OpenWeather = () => {
         </div>
     )
     }
-}
+
 export default OpenWeather;
