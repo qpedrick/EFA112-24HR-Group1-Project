@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from 'react-dom';
 import Button from '@mui/material/Button';
+
 const OpenWeather = () => {
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);;
@@ -44,6 +45,7 @@ const OpenWeather = () => {
                         <th>Maximum Temp</th>
                     </tr>
                 </thead>
+
                 <td>{`${Math.round(results.temp - 273.15)}°C`}</td>
                 <td>{`${Math.round(results.feels_like - 273.15)}°C`}</td>
                 <td>{`${Math.round(results.temp_min - 273.15)}°C`}</td>

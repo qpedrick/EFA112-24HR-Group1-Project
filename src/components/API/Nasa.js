@@ -42,13 +42,13 @@ const Nasa = () => {
         <div className='main'>
             <div className='mainDiv'>
                 <h1>Nasa API</h1>
-                <Button onClick={getLocation} variant="contained">GetLocation</Button>
+                <Button onClick={getLocation} variant="contained">Get Location</Button>
                 <h2>Coordinates</h2>
                 <p>{status}</p>
                 {lat && <p>Latitude: {lat}</p>}
                 {lng && <p>Longitude: {lng}</p>}
                 <h3>Image</h3>
-                <button onClick={() => getImage()}>Get Image</button>
+                <Button onClick={() => getImage()} variant="contained">Get Image</Button>
                 <div>
                     <img alt='Please get location first :)' src={image} height='250px' width='250px'></img>
                 </div>
