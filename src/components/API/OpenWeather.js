@@ -1,3 +1,4 @@
+
 import React, { useState } from "react"
 
 const OpenWeather = props => {
@@ -26,7 +27,7 @@ const OpenWeather = props => {
     }
     const fetchCurrentWeather = () => {
         getLocation();
-        fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${25}&lon=${85}&appid=${key}`)
+        fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}}&lon=${lng}&appid=${key}`)
             .then(res => res.json())
             .then(json => {
                 console.log(json);
@@ -65,6 +66,7 @@ const OpenWeather = props => {
             </table> : <div></div>}
 
         </div >
+
     )
 }
 
