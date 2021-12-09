@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from "react";
+import React, {useState } from "react";
 
 
 const TicketMaster = (props) => {
@@ -7,7 +7,6 @@ const TicketMaster = (props) => {
     const [results, setResults] = useState({})
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);
-    const [status, setStatus] = useState(null);
     
     const fetchEvents = () => {
     
@@ -15,22 +14,21 @@ const TicketMaster = (props) => {
         
         fetch(url) 
         .then(res => res.json())
-        .then(json => console.log(json))
+        .then(data => setResults(results))
         .catch(err => console.log(err))
     }
     
 
     const getLocation = () => {
         if (!navigator.geolocation) {
-            setStatus("Geolocation is not supported by your broswer");
+            console.log("Geolocation is not supported by your broswer");
         } else {
-            setStatus("Locating");
+            console.log("Locating");
             navigator.geolocation.getCurrentPosition((position) => {
-                setStatus(null);
                 setLat(position.coords.latitude);
                 setLng(position.coords.longitude);
             }, () => {
-                setStatus("Unable to retrieve your location");
+                console.log("Unable to retrieve your location");
             });
         }
     }
