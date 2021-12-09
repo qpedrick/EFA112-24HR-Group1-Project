@@ -10,7 +10,7 @@ const TicketMaster = (props) => {
     const [status, setStatus] = useState(null);
     
     const fetchEvents = () => {
-        let url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${ticketmasterKey}&latlong=${lat},${lng}` // tried to add "https://cors-anywhere.herokuapp.com/" in front of the link
+        let url = `https://cors-anywhere.herokuapp.com/https://app.ticketmaster.com/discovery/v2/events.json?apikey=${ticketmasterKey}&latlong=${lat},${lng}` // tried to add "https://cors-anywhere.herokuapp.com/" in front of the link
 
         fetch(url, { // CORS PROBLEM BUT SHOWS UP ON POST
             method: "GET",
@@ -24,8 +24,8 @@ const TicketMaster = (props) => {
         })  
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            setResults(data)
+            console.log(data._embedded)
+            setResults(data._embedded)
         })
         .catch(err => console.log(err))
     }
@@ -60,7 +60,11 @@ return(
                 />
                 <br />
                 <br />
-                
+
+                <a href="https://cors-anywhere.herokuapp.com/" target="_blank"><button>Access CORS</button></a>
+                <br />
+                <br />
+
                 <button onClick={() => getLocation()}>Get Location</button>
                 <h2>Latitude & Longitude</h2>
                 <p>Latitude: {lat}</p>
