@@ -96,15 +96,6 @@ return(
                 </p>
                 : <div></div>
                 }
-
-                {results ? 
-                <p>{results.name}
-                <br />
-                {results.url}
-                <br />
-                </p> 
-                : <div></div>}
-
             </div>
         </main>
     </div>
