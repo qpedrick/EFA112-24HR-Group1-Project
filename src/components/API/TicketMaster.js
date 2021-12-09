@@ -47,7 +47,6 @@ const TicketMaster = (props) => {
     }
 
 
-
 return(
     <div className = 'main'>
         <main>
