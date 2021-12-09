@@ -2,16 +2,17 @@ import React, {useState, useEffect } from "react";
 
 
 const TicketMaster = (props) => {
-    const ticketmasterKey="ZHK3g0y7c68WdfkO6ZE1bKjVIhqcJxGg"
+    const ticketmasterKey="hKAMgR5YeiSPjplmgrpwTuMTCQp63O46"
     const [search, setSearch] = useState('');
     const [results, setResults] = useState({})
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);
     const [status, setStatus] = useState(null);
     
+
     const fetchEvents = () => {
         let url = `https://cors-anywhere.herokuapp.com/https://app.ticketmaster.com/discovery/v2/events.json?apikey=${ticketmasterKey}&latlong=${lat},${lng}` // tried to add "https://cors-anywhere.herokuapp.com/" in front of the link
-
+        
         fetch(url, { // CORS PROBLEM BUT SHOWS UP ON POST
             method: "GET",
             headers : new Headers({
@@ -24,8 +25,8 @@ const TicketMaster = (props) => {
         })  
         .then(res => res.json())
         .then(data => {
-            console.log(data._embedded.events)
-            setResults(data._embedded.events)
+            console.log(data._embedded.events[1])
+            setResults(data._embedded.events[1])
         })
         .catch(err => console.log(err))
     }
