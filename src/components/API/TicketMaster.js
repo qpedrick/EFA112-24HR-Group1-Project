@@ -61,7 +61,6 @@ return(
                 />
                 <br />
                 <br />
-
                 <a href="https://cors-anywhere.herokuapp.com/" target="_blank"><button>Access CORS</button></a>
                 <br />
                 <br />
@@ -72,11 +71,18 @@ return(
                 <p>Longitude: {lng}</p>
 
                 <button onClick={() => fetchEvents()}>Get Events Near You</button>
-                {results ? <p>{results.name}</p> : <div></div>}
+                {results ? 
+                <p>{results.name}
+                <br />
+                {results.url}
+                <br />
+                </p> 
+                : <div></div>}
             </div>
         </main>
     </div>
     )
 };
+
     
 export default TicketMaster;
