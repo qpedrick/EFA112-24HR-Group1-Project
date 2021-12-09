@@ -65,7 +65,8 @@ return(
                 />
                 <br />
                 <br />
-                <a href="https://cors-anywhere.herokuapp.com/" target="_blank"><Button variant="contained">Access CORS</Button></a>
+                <a href="https://cors-anywhere.herokuapp.com/" target="_blank">
+                <Button variant="contained">Access CORS</Button></a>
                 <br />
                 <br />
 
@@ -77,25 +78,20 @@ return(
 
                 <Button onClick={() => fetchEvents()} variant="contained">Get Events Near You</Button>
 
-                {results ?
                 <p>
                     {results.name}
                     <br/>
                     <a href = {results.url} rel = 'noreferrer' target = '_blank'>{results.url}</a>
                     <br />
                 </p>
-                : <div></div>
-                }
                 
-                {extraResult ?
+
                 <p>
                     {extraResult.name}
                     <br/>
-                    {extraResult.url}
+                    <a href = {extraResult.url} rel = 'noreferrer' target = '_blank'>{extraResult.url}</a>
                     <br />
                 </p>
-                : <div></div>
-                }
                 
             </div>
         </main>
