@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from "react";
-
+import ReactDOM from 'react-dom';
+import Button from '@mui/material/Button';
 
 const TicketMaster = (props) => {
     const ticketmasterKey="hKAMgR5YeiSPjplmgrpwTuMTCQp63O46"
@@ -67,13 +68,13 @@ return(
                 <br />
                 <br />
 
-                <button onClick={() => getLocation()}>Get Location</button>
+                <Button onClick={() => getLocation()} variant="contained">Get Location</Button>
                 <h2>Latitude & Longitude</h2>
                 <p>Latitude: {lat}</p>
                 <p>Longitude: {lng}</p>
                 <p>{status}</p>
 
-                <button onClick={() => fetchEvents()}>Get Events Near You</button>
+                <Button onClick={() => fetchEvents()} variant="contained">Get Events Near You</Button>
                 {results ?
                 <p>
                     {results.name}
