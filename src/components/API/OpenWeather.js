@@ -1,4 +1,3 @@
-
 import React, { useState } from "react"
 
 const OpenWeather = () => {
@@ -6,6 +5,7 @@ const OpenWeather = () => {
     const [lng, setLng] = useState(null);;
     const [results, setResults] = useState(null);
     const key = `08d029604b596f179b40bb36b23a43c3`;
+    //const altkey = '87fdda7a943f4b425d67f817af9cab46'
 
     const getLocation = () => {
         if (!navigator.geolocation) {
@@ -26,14 +26,6 @@ const OpenWeather = () => {
         getLocation();
         fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${25}&lon=${50}&appid=${key}`)
             .then(res => res.json())
-
-            .then(data => {
-                setResults(data.main)
-            })
-            .catch(err => console.log(err))
-        }
-    
-
 
     return (
         <div className='main'>

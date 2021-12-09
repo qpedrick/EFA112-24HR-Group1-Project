@@ -61,7 +61,6 @@ return(
                 />
                 <br />
                 <br />
-
                 <a href="https://cors-anywhere.herokuapp.com/" target="_blank"><button>Access CORS</button></a>
                 <br />
                 <br />
@@ -84,5 +83,6 @@ return(
     </div>
     )
 };
+
     
 export default TicketMaster;

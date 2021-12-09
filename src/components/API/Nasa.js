@@ -48,7 +48,7 @@ const Nasa = () => {
                 {lat && <p>Latitude: {lat}</p>}
                 {lng && <p>Longitude: {lng}</p>}
                 <h3>Image</h3>
-                <Button onClick={() => getImage()} variant="contained">Get Image Console</Button>
+                <button onClick={() => getImage()}>Get Image</button>
                 <div>
                     <img alt='Please get location first :)' src={image} height='250px' width='250px'></img>
                 </div>
