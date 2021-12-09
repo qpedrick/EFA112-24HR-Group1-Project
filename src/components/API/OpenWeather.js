@@ -1,8 +1,13 @@
+
+
 import React, { useState } from "react"
 
 const OpenWeather = props => {
-    const [weather, setWeather] = useState({
-    });
+    const [sky, setSky] = useState([]);
+    const [temp, setTemp] = useState([]);
+    const [tempMin, setTempMin] = useState([]);
+    const [tempMax, setTempMax] = useState([]);
+    const [feelsLike, setFeelsLike] = useState([]);
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);
     const key = `08d029604b596f179b40bb36b23a43c3`;
@@ -23,11 +28,15 @@ const OpenWeather = props => {
     }
     const fetchCurrentWeather = () => {
         getLocation();
-        fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${25}&lon=${85}&appid=${key}`)
+        fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}}&lon=${lng}&appid=${key}`)
             .then(res => res.json())
             .then(json => {
                 console.log(json);
-                setWeather(json)
+                setSky(json.weather[0].description)
+                setTemp(json.main.temp)
+                setFeelsLike(json.main.feels_like)
+                setTempMin(json.main.temp_min)
+                setTempMax(json.main.temp_max)
             })
             .catch(err => console.log(err))
     }
@@ -36,9 +45,8 @@ const OpenWeather = props => {
     return (
         <div className='main'>
             <div className='mainDiv'></div>
-
-            <button onClick={fetchCurrentWeather()}>Get Weather near me.</button>
-            <table>
+            <button onClick={() => fetchCurrentWeather()}>See your current local weather</button>
+            {tempMax ? <table>
                 <thead>
                     <tr>
                         <th>Sky</th>
@@ -46,13 +54,16 @@ const OpenWeather = props => {
                         <th>Feels like</th>
                         <th>Temp Min</th>
                         <th>Temp Max</th>
-                        <th>WindSpeed</th>
                     </tr>
                 </thead>
                 <tr>
-                    <td></td>
+                    <td>{sky}</td>
+                    <td>{temp}</td>
+                    <td>{feelsLike}</td>
+                    <td>{tempMin}</td>
+                    <td>{tempMax}</td>
                 </tr>
-            </table>
+            </table> : <div></div>}
         </div >
 
     )
