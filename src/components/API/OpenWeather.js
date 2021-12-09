@@ -31,6 +31,7 @@ const OpenWeather = () => {
             })
             .catch(err => console.log(err))
         }
+
     return (
         <div className='main'>
             {getLocation()}
@@ -54,5 +55,5 @@ const OpenWeather = () => {
             <Button onClick={fetchCurrentWeather} variant="contained">Find Weather</Button>
         </div>
     )
-}
+    
 export default OpenWeather;
