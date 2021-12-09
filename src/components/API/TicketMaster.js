@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
-import Button from '@mui/material/Button';
+import { Button, TextField, Link } from '@mui/material/';
 
 
 const TicketMaster = (props) => {
@@ -56,10 +56,7 @@ return(
         <main>
             <div className="searchbox">
                 <h2>TicketMaster Events</h2>
-                <input 
-                type="text"
-                className="searchbar"
-                placeholder="search"
+                <TextField id="filled-basic" className="searchbar" label="Search" variant="filled"
                 value={search}
                 onChange={e => setSearch(e.target.value)}
                 />
@@ -69,27 +66,25 @@ return(
                 <Button variant="contained">Access CORS</Button></a>
                 <br />
                 <br />
-
                 <Button onClick={() => getLocation()} variant="contained">Get Location</Button>
-                <h2>Latitude & Longitude</h2>
+                <h2>
+                <br />
+                Latitude & Longitude</h2>
                 <p>Latitude: {lat}</p>
                 <p>Longitude: {lng}</p>
                 <p>{status}</p>
-
+                <br />
                 <Button onClick={() => fetchEvents()} variant="contained">Get Events Near You</Button>
-
                 <p>
                     {results.name}
                     <br/>
-                    <a href = {results.url} rel = 'noreferrer' target = '_blank'>{results.url}</a>
+                    <Link href = {results.url} color="secondary" rel = 'noreferrer' target = '_blank'>{results.url}</Link>
                     <br />
                 </p>
-                
-
                 <p>
                     {extraResult.name}
                     <br/>
-                    <a href = {extraResult.url} rel = 'noreferrer' target = '_blank'>{extraResult.url}</a>
+                    <Link href = {extraResult.url} color="secondary" rel = 'noreferrer' target = '_blank'>{extraResult.url}</Link>
                     <br />
                 </p>
                 
