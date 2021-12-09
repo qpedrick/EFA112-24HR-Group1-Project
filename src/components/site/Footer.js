@@ -4,7 +4,7 @@ const Footer = () => {
     return(
         <footer>
             <row>
-                <p>&copy; Eleven Fifty 2021</p>
+                <p>&copy; Kiersten Gamby, Brandon Nguyen, Quinton Pedrick, Andrew Wesson</p>
             </row>
         </footer>
     );

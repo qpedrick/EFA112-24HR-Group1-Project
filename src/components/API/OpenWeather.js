@@ -1,4 +1,5 @@
 
+
 import React, { useState } from "react"
 
 const OpenWeather = props => {
@@ -44,7 +45,6 @@ const OpenWeather = props => {
     return (
         <div className='main'>
             <div className='mainDiv'></div>
-
             <button onClick={() => fetchCurrentWeather()}>See your current local weather</button>
             {tempMax ? <table>
                 <thead>
@@ -64,7 +64,6 @@ const OpenWeather = props => {
                     <td>{tempMax}</td>
                 </tr>
             </table> : <div></div>}
-
         </div >
 
     )

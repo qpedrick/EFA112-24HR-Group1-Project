@@ -10,7 +10,7 @@ const Header = () => {
     return(
         <header>
             <Navbar className = 'header'>
-                <NavbarBrand href = '/'>React Library</NavbarBrand>
+                <NavbarBrand href = '/'>24-Hour Project</NavbarBrand>
             </Navbar>
         </header>
     );
