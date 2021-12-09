@@ -26,10 +26,13 @@ const OpenWeather = () => {
     }
     const fetchCurrentWeather = () => {
         getLocation();
-        fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}}&lon=${lng}&appid=${key}`)
+        fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${key}`)
             .then(res => res.json())
-            .then(data => setResults(data.main))
-    }
+            .then(data => {
+                setResults(data.main)
+            })
+            .catch(err => console.log(err))
+        }
     return (
         <div className='main'>
             <div className='mainDiv'></div>
