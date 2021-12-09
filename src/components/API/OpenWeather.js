@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 const OpenWeather = () => {
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);;
+    const [type, setType] = useState(false);
     const [results, setResults] = useState(null);
     const key = `08d029604b596f179b40bb36b23a43c3`;
     //const altkey = '87fdda7a943f4b425d67f817af9cab46'
@@ -31,6 +32,13 @@ const OpenWeather = () => {
             })
             .catch(err => console.log(err))
         }
+    const Convert = () => {
+        if (type == true){
+            setType(false);
+        }else{
+            setType(true);
+        }
+    }
     return (
         <div className='main'>
             {getLocation()}
@@ -45,13 +53,24 @@ const OpenWeather = () => {
                         <th>Maximum Temp</th>
                     </tr>
                 </thead>
+                {type ?                 
+                <tbody>
+                <td>{`${Math.round((results.temp - 273.15))}C`}</td>
+                <td>{`${Math.round((results.feels_like -273.15))}C`}</td>
+                <td>{`${Math.round((results.temp_min -273.15))}C`}</td>
+                <td>{`${Math.round((results.temp_max -273.15))}C`}</td></tbody>: 
+                <tbody>
+                <td>{`${Math.round((results.temp -273.15)*9/5 + 32)}F`}</td>
+                <td>{`${Math.round((results.feels_like -273.15)*9/5 + 32)}F`}</td>
+                <td>{`${Math.round((results.temp_min -273.15)*9/5 + 32)}F`}</td>
+                <td>{`${Math.round((results.temp_max -273.15)*9/5 + 32)}F`}</td>
+                </tbody>}
 
-                <td>{`${Math.round(results.temp - 273.15)}°C`}</td>
-                <td>{`${Math.round(results.feels_like - 273.15)}°C`}</td>
-                <td>{`${Math.round(results.temp_min - 273.15)}°C`}</td>
-                <td>{`${Math.round(results.temp_max - 273.15)}°C`}</td>
             </table> : <div></div>}
+            <Button onClick={Convert} variant="contained">C/F</Button>
+            <div>
             <Button onClick={fetchCurrentWeather} variant="contained">Find Weather</Button>
+            </div>
         </div>
     )
 }
