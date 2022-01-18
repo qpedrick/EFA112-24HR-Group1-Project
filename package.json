@@ -1,8 +1,8 @@
 {
   "name": "twentyfour_1",
   "version": "0.1.0",
-  "homepage": "http://qpedrick.github.io/EFA112-24HR-Group1-Project",
-  "private": true,
+  "homepage": "https://qpedrick.github.io/EFA112-24HR-Group1-Project/",
+  "private": false,
   "dependencies": {
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
