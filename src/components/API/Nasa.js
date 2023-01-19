@@ -1,7 +1,7 @@
 /*API key = '9OyDJd4K3mQV7jlaO0tLvP1Gsibafxns1tMSrzab'*/
 
 import React, { useState } from "react";
-//import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 import Button from '@mui/material/Button';
 
 const Nasa = () => {
